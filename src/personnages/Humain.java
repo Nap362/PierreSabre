@@ -3,7 +3,7 @@ package personnages;
 
 
 public class Humain {
-	public static final int NB_MAX_CONNAISSANCE = 3;
+	public static final int NB_MAX_CONNAISSANCE = 30;
 	protected String nom;
 	private String boissonFavorite;
 	protected int argent;
@@ -83,7 +83,10 @@ public class Humain {
 		int i = 0;
 		String texte = "Je connais beaucoup de monde dont : ";
 		while (i<nbConnaissance) {
-			texte += memoire[i].getNom() + ", ";
+			texte += memoire[i].getNom();
+			if (i<nbConnaissance-1) {
+				texte +=", ";
+			}
 			i++;
 		}
 		parler(texte);
