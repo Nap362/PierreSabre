@@ -8,7 +8,7 @@ public class Yakuza extends Humain {
 		super(nom, boissonFavorite, argent);
 		this.clan = clan;
 	}
-	
+
 	@Override
 	public void direBonjour() {
 		super.direBonjour();

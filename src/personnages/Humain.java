@@ -1,7 +1,5 @@
 package personnages;
 
-
-
 public class Humain {
 	public static final int NB_MAX_CONNAISSANCE = 30;
 	protected String nom;
@@ -53,39 +51,38 @@ public class Humain {
 					+ " sous");
 		}
 	}
-	
+
 	public void faireConnaissanceAvec(Humain autreHumain) {
 		direBonjour();
 		autreHumain.repondre(this);
-		memoriser(autreHumain);		
+		memoriser(autreHumain);
 	}
-	
+
 	private void memoriser(Humain humain) {
-		if (nbConnaissance<NB_MAX_CONNAISSANCE) {
-			memoire[nbConnaissance]=humain;
+		if (nbConnaissance < NB_MAX_CONNAISSANCE) {
+			memoire[nbConnaissance] = humain;
 			nbConnaissance++;
-		}
-		else {
-			for (int i=1;i<NB_MAX_CONNAISSANCE;i++) {
-				memoire[i-1]=memoire[i];
+		} else {
+			for (int i = 1; i < NB_MAX_CONNAISSANCE; i++) {
+				memoire[i - 1] = memoire[i];
 			}
-			memoire[nbConnaissance-1]=humain;
+			memoire[nbConnaissance - 1] = humain;
 		}
 	}
-	
+
 	private void repondre(Humain humain) {
 		direBonjour();
 		memoriser(humain);
-		
+
 	}
-	
+
 	public void listerConnaissance() {
 		int i = 0;
 		String texte = "Je connais beaucoup de monde dont : ";
-		while (i<nbConnaissance) {
+		while (i < nbConnaissance) {
 			texte += memoire[i].getNom();
-			if (i<nbConnaissance-1) {
-				texte +=", ";
+			if (i < nbConnaissance - 1) {
+				texte += ", ";
 			}
 			i++;
 		}
